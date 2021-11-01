@@ -143,6 +143,7 @@ class User_model extends CI_Model {
 			else
 			{
 				$this->session->siteman= 1;
+				$this->session->username= $username;
 				$this->session->sesi= $row->session;
 				$this->session->user = $row->id;
 				$this->session->grup = $row->id_grup;
