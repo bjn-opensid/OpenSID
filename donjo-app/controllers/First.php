@@ -83,7 +83,7 @@ class First extends Web_Controller {
 		$this->load->model('web_widget_model');
 		$this->load->model('web_gallery_model');
 		$this->load->model('laporan_penduduk_model');
-		$this->load->model('track_model');
+		// $this->load->model('track_model');
 		$this->load->model('keluar_model');
 		$this->load->model('referensi_model');
 		$this->load->model('keuangan_model');
@@ -120,14 +120,14 @@ class First extends Web_Controller {
 
 		$data['headline'] = $this->first_artikel_m->get_headline();
 		$data['cari'] = htmlentities($this->input->get('cari'));
-		if ($this->setting->covid_rss)
-		{
-			$data['feed'] = array(
-				'items' => $this->first_artikel_m->get_feed(),
-				'title' => 'BERITA COVID19.GO.ID',
-				'url' => 'https://www.covid19.go.id'
-			);
-		}
+		// if ($this->setting->covid_rss)
+		// {
+		// 	$data['feed'] = array(
+		// 		'items' => $this->first_artikel_m->get_feed(),
+		// 		'title' => 'BERITA COVID19.GO.ID',
+		// 		'url' => 'https://www.covid19.go.id'
+		// 	);
+		// }
 
 		if ($this->setting->apbdes_footer)
 		{
@@ -146,7 +146,7 @@ class First extends Web_Controller {
 		}
 
 		$this->_get_common_data($data);
-		$this->track_model->track_desa('first');
+		// $this->track_model->track_desa('first');
 		$this->load->view($this->template, $data);
 	}
 

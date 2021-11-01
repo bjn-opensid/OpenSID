@@ -203,8 +203,8 @@ class Database_model extends CI_Model {
 			'value' => $versi
 		);
 		$this->db->where(array('key'=>'current_version'))->update('setting_aplikasi', $newVersion);
-		$this->load->model('track_model');
-		$this->track_model->kirim_data();
+		// $this->load->model('track_model');
+		// $this->track_model->kirim_data();
 		$this->catat_versi_database();
   }
 

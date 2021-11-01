@@ -47,7 +47,7 @@ class Main extends CI_Controller {
 		parent::__construct();
 		$this->load->model('config_model');
 		$this->load->model('pamong_model');
-		$this->load->model('track_model');
+		// $this->load->model('track_model');
 	}
 
 	public function maintenance_mode()
@@ -66,7 +66,7 @@ class Main extends CI_Controller {
 	{
 		if (isset($_SESSION['siteman']) AND $_SESSION['siteman'] == 1)
 		{
-			$this->track_model->track_desa('main');
+			// $this->track_model->track_desa('main');
 			$this->load->model('user_model');
 			$grup = $this->user_model->sesi_grup($_SESSION['sesi']);
 			switch ($grup)
