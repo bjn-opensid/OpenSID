@@ -504,9 +504,9 @@ class First_artikel_m extends CI_Model {
 	 */
 	public function insert_comment($data = [])
 	{
-		$this->db->insert('komentar', $data);
-
-		return $this->db->affected_rows();
+		$data = $this->db->insert('komentar', $data);
+		// return $this->db->affected_rows();
+		return $data;
 	}
 
 	public function list_komentar($id = 0)

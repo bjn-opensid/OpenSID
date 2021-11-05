@@ -9,8 +9,8 @@
             <?php endif; ?>
         </div>
         <?php $this->load->view($folder_themes."/layouts/slider.php") ?>
-		<?php if ($this->setting->covid_data) $this->load->view($folder_themes."/partials/corona-widget.php")?>
-		<?php if ($this->setting->covid_desa) $this->load->view($folder_themes."/partials/corona-local.php");?>
+		<?php //if ($this->setting->covid_data) $this->load->view($folder_themes."/partials/corona-widget.php")?>
+		<?php //if ($this->setting->covid_desa) $this->load->view($folder_themes."/partials/corona-local.php");?>
         <?php if ($headline): ?>
         <?php $abstrak_headline = potong_teks($headline['isi'], 550) ?>
         <div class="single_category wow fadeInDown">

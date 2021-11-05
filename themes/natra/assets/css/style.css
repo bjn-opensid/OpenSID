@@ -1,6 +1,6 @@
 #feed{ /*display: none;*/ }
 @font-face{ font-family:'Oswald'; font-style:normal; font-weight:400; src:local('Oswald Regular'),local('Oswald-Regular'),url("../fonts/Oswald-Regular-400.woff") format('woff')}
-body{background-color:#fff; color:#333; overflow-x:hidden !important}
+body{background: url('/assets/images/img1.jpg') no-repeat center center fixed;background-color:#fff; color:#333; overflow-x:hidden !important}
 ul{padding:0; margin:0; list-style:none}
 a{text-decoration:none; color:#798992}
 a:hover{color:#646464; text-decoration:none}
@@ -105,7 +105,7 @@ img:hover{opacity:0.75}
 .catgimg2_container2{float:left; display:block; overflow:hidden}
 .catgimg2_container2 img{-webkit-transition:all 0.5s; -moz-transition:all 0.5s; -ms-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .catgimg2_container2 a:hover img{-webkit-transform:scale(1.1); -moz-transform:scale(1.1); -ms-transform:scale(1.1); -o-transform:scale(1.1); transform:scale(1.1)}
-.catg_titile{margin-bottom:5px; height:100%; float:left; background-color:#e64946; width:100%; border:3px double #ffffff;padding:3px;}
+.catg_titile{margin-bottom:5px; height:100%; float:left; background-color:#37b91d; width:100%; border:3px double #ffffff;padding:3px;}
 .catg_titile a{color:#fff; font-size:18px; float:left; padding-left:4px; padding-right:4px;}
 .catg_titile a:hover{background-color:#fff;}
 .comments_box{float:left; display:inline; width:100%; margin-bottom:5px}
@@ -138,7 +138,7 @@ span.meta_more:before{content:" "; font-family:FontAwesome; font-style:normal
 .blog_archive{display:inline; float:left; width:100%; margin-bottom:15px}
 .blog_archive select{background-color:#fff; border:medium none; height:50px; padding:10px; width:100%}
 .blog_archive select option{cursor:pointer; padding:10px 5px}
-#footer{float:left; display:inline; width:100%; border-top:10px solid #e21213; margin-top:30px}
+#footer{background-color: white;float:left; display:inline; width:100%; border-top:10px solid #e21213; margin-top:30px}
 .footer_top{background-color:#434c51; display:inline; float:left; padding:15px 0; width:100%}
 .single_footer_top{float:left; display:inline; width:100%}
 .single_footer_top > h2{ font-size:18px; margin:0 0 10px; padding:6px 0; text-transform:uppercase}

@@ -3,3 +3,7 @@ update database :
 UPDATE setting_aplikasi set `value`='0' WHERE `key`='enable_track';
 UPDATE setting_aplikasi SET `value`='18-10-2021' WHERE `key`='tgl_data_lengkap';
 UPDATE setting_aplikasi SET `value`='1' WHERE `key`='tgl_data_lengkap_aktif';
+
+UPDATE setting_modul SET `aktif`='1' WHERE `id`='50';
+
+ALTER TABLE komentar ADD `no_hp` varchar(15) DEFAULT NULL;

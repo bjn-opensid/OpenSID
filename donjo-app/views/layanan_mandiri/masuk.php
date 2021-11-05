@@ -145,11 +145,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<div class="form-group">
 												<button type="submit" class="btn btn-block bg-green"><b>MASUK</b></button>
 											</div>
-											<div class="form-group">
+											<!-- <div class="form-group">
 												<a href="<?= site_url("layanan_mandiri/masuk_ektp")?>" >
 													<button type="button" class="btn btn-block bg-green"><b>MASUK DENGAN E-KTP</b></button>
 												</a>
-											</div>
+											</div> -->
 
 									<?php else: ?>
 
@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php endif; ?>
 							</form>
 							<div class="login-footer-bottom">
-								<a href="https://github.com/OpenSID/OpenSID" class="content-color-secondary" rel="noopener noreferrer" target="_blank">OpenSID <?= AmbilVersi() ?></a>
+								<a href="https://github.com/OpenSID/OpenSID" class="content-color-secondary" rel="noopener noreferrer" target="_blank">OpenSID <?= AmbilVersi() ?></a> Limited
 							</div>
 						</div>
 					</div>

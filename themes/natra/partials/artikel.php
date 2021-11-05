@@ -106,7 +106,7 @@
 		</div>
 	</div>
 	<?php if ($single_artikel['boleh_komentar'] == 1): ?>
-		<div class="fb-comments" data-href="<?= site_url('artikel/'.buat_slug($single_artikel))?>" width="100%" data-numposts="5"></div>
+		<!-- <div class="fb-comments" data-href="<?= site_url('artikel/'.buat_slug($single_artikel))?>" width="100%" data-numposts="5"></div> -->
 	<?php endif; ?>
 	<div class="contact_bottom">
 		<?php if (!empty($komentar)): ?>
@@ -205,7 +205,8 @@
 			<div class="error_page_content">
 				<h1>404</h1>
 				<h2>Maaf</h2>
-				<h3>Halaman ini belum tersedia atau sedang dalam perbaikan</h3>
+				<h3>Halaman ini belum tersedia, hubungi operator Desa</h3>
+				<!-- <h3>Halaman ini belum tersedia atau sedang dalam perbaikan</h3> -->
 				<p class="wow fadeInLeftBig">Silahkan kembali lagi ke halaman <a href="<?= site_url(); ?>first">Beranda</a></p>
 			</div>
 		</div>

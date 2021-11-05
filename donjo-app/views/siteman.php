@@ -46,7 +46,9 @@
 <style type="text/css">
 	<?php if ($latar_login): ?>
 		body.login {
-			background: url('<?= base_url($latar_login) ?>');
+			/* background: url('<?= base_url($latar_login) ?>'); */
+			background: url('/assets/images/img4.jpg') no-repeat center fixed;
+			-webkit-background-size: cover;
 		}
 	<?php endif; ?>
 </style>
@@ -130,7 +132,7 @@
 									<?php endif; ?>
 								</form>
 								<hr/>
-								<div class="login-footer-bottom"><a href="https://github.com/OpenSID/OpenSID" target="_blank">OpenSID</a> <?= substr(AmbilVersi(), 0, 20)?></div>
+								<div class="login-footer-bottom"><a href="https://github.com/OpenSID/OpenSID" target="_blank">OpenSID</a> <?= substr(AmbilVersi(), 0, 20)?> Limited</div>
 							</div>
 						</div>
 					</div>

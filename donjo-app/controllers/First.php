@@ -136,7 +136,7 @@ class First extends Web_Controller {
 				: $this->keuangan_grafik_model->grafik_keuangan_tema();
 		}
 
-		$data['covid'] = $this->laporan_penduduk_model->list_data('covid');
+		// $data['covid'] = $this->laporan_penduduk_model->list_data('covid');
 
 		$cari = trim($this->input->get('cari'));
 		if ( ! empty($cari))
