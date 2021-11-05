@@ -86,30 +86,39 @@
 															</tr>
 														</thead>
 														<tbody>
-															<?php foreach ($main as $data): ?>
-																<tr>
-																	<td>
-																		<?php if ($data['id']!=1): ?>
-																			<input type="checkbox" name="id_cb[]" value="<?=$data['id']?>" />
-																		<?php endif; ?>
-																	</td>
-																	<td><?=$data['no']?></td>
-																	<td nowrap>
-																		<a href="<?=site_url("Man_user/form/$p/$o/$data[id]")?>" class="btn bg-orange btn-flat btn-sm"  title="Ubah"><i class="fa fa-edit"></i></a>
-																		<?php if ($data['id']!=1): ?>
-																			<?php if ($data['active'] == '0'): ?>
-																				<a href="<?=site_url('Man_user/user_unlock/'.$data['id'])?>" class="btn bg-navy btn-flat btn-sm"  title="Aktifkan Pengguna"><i class="fa fa-lock">&nbsp;</i></a>
-																			<?php elseif ($data['active'] == '1'): ?>
-																				<a href="<?=site_url('Man_user/user_lock/'.$data['id'])?>" class="btn bg-navy btn-flat btn-sm"  title="Non Aktifkan Pengguna"><i class="fa fa-unlock"></i></a>
+															<?php foreach ($main as $data): 
+															$true = true;
+															if ($data['username']=='administrator'){
+																$true = false;
+															}else if($_SESSION['username']!='administrator' && $data['username']=='adminpemkab'){
+																$true = false;
+															}
+																?>
+																<?php if($true) : ?>
+																	<tr>
+																		<td>
+																			<?php if ($data['id']!=1): ?>
+																				<input type="checkbox" name="id_cb[]" value="<?=$data['id']?>" />
 																			<?php endif; ?>
-																			<a href="#" data-href="<?=site_url("Man_user/delete/$p/$o/$data[id]")?>" class="btn bg-maroon btn-flat btn-sm"  title="Hapus" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash-o"></i></a>
-																		<?php endif; ?>
-																	</td>
-																	<td><?=$data['username']?></td>
-																	<td><?=$data['nama']?></td>
-																	<td><?=$data['grup']?></td>
-																	<td><?=tgl_indo($data['last_login'])?></td>
-																</tr>
+																		</td>
+																		<td><?=$data['no']?></td>
+																		<td nowrap>
+																			<a href="<?=site_url("Man_user/form/$p/$o/$data[id]")?>" class="btn bg-orange btn-flat btn-sm"  title="Ubah"><i class="fa fa-edit"></i></a>
+																			<?php if ($data['username']!='admin'): ?>
+																				<?php if ($data['active'] == '0'): ?>
+																					<a href="<?=site_url('Man_user/user_unlock/'.$data['id'])?>" class="btn bg-navy btn-flat btn-sm"  title="Aktifkan Pengguna"><i class="fa fa-lock">&nbsp;</i></a>
+																				<?php elseif ($data['active'] == '1'): ?>
+																					<a href="<?=site_url('Man_user/user_lock/'.$data['id'])?>" class="btn bg-navy btn-flat btn-sm"  title="Non Aktifkan Pengguna"><i class="fa fa-unlock"></i></a>
+																				<?php endif; ?>
+																				<a href="#" data-href="<?=site_url("Man_user/delete/$p/$o/$data[id]")?>" class="btn bg-maroon btn-flat btn-sm"  title="Hapus" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash-o"></i></a>
+																			<?php endif; ?>
+																		</td>
+																		<td><?=$data['username']?></td>
+																		<td><?=$data['nama']?></td>
+																		<td><?=$data['grup']?></td>
+																		<td><?=tgl_indo($data['last_login'])?></td>
+																	</tr>
+																<?php endif; ?>
 															<?php endforeach; ?>
 														</tbody>
 													</table>

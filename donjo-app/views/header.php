@@ -229,6 +229,12 @@
 									</li>
 								</ul>
 							</li>
+							<li>
+								<a target="_blank" href="https://sid.bojonegorokab.go.id/assets/storage/PANDUAN-PENGGUNAAN-OPENSID.pdf">
+									<span><i class="fa fa-info-circle fa-lg" title="Manual Book"></i>&nbsp;</span>
+									<span class="badge" id="b_inbox" style="display: none;"></span>
+								</a>
+							</li>
 							<?php if ($this->controller == 'pelanggan' && $this->CI->cek_hak_akses('u', $this->controller)): ?>
 								<li>
 									<a href="#" data-remote="false" data-toggle="modal" data-title="Pengaturan <?= ucwords($this->controller); ?>" data-target="#pengaturan">

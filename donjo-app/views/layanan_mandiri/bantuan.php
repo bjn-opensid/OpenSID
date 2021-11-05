@@ -67,6 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		});
 		$('#'+id+'').dialog('open');
+		$('.ui-dialog-titlebar-close').html('X');
 	}
 </script>
 <div class="box box-solid">

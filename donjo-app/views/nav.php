@@ -74,7 +74,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<ul class="sidebar-menu" data-widget="tree">
 			<li class="header">MENU UTAMA</li>
-
 			<?php foreach ($modul AS $mod): ?>
 				<?php if ($this->CI->cek_hak_akses('b', $mod['url']) && $mod['aktif'] == 1): ?>
 					<?php if (count($mod['submodul'])==0): ?>
@@ -91,13 +90,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<span class="pull-right-container"><i class='fa fa-angle-left pull-right'></i></span>
 							</a>
 							<ul class="treeview-menu <?= jecho($this->modul_ini, $mod['id'], 'active'); ?>">
-								<?php foreach ($mod['submodul'] as $submod): ?>
-									<li class="<?= jecho($this->sub_modul_ini, $submod['id'], 'active'); ?>">
-										<a href="<?= site_url("$submod[url]"); ?>">
-											<i class="fa <?= ($submod['ikon'] != NULL) ? $submod['ikon'] : 'fa-circle-o'; ?> <?= jecho($this->sub_modul_ini, $submod['id'], 'text-red'); ?>"></i>
-											<?= $submod['modul']; ?>
-										</a>
-									</li>
+								<?php foreach ($mod['submodul'] as $submod):
+									$kondisi = true;
+									if($_SESSION['username']!='administrator'){
+										if($submod['id']=='42'){
+											$kondisi = false;
+										}
+									}
+									?>
+									<?php if($kondisi) : ?>
+										<li class="<?= jecho($this->sub_modul_ini, $submod['id'], 'active'); ?>">
+											<a href="<?= site_url("$submod[url]"); ?>">
+												<i class="fa <?= ($submod['ikon'] != NULL) ? $submod['ikon'] : 'fa-circle-o'; ?> <?= jecho($this->sub_modul_ini, $submod['id'], 'text-red'); ?>"></i>
+												<?= $submod['modul']; ?>
+											</a>
+										</li>
+									<?php endif; ?>
 								<?php endforeach; ?>
 							</ul>
 						</li>
