@@ -54,17 +54,24 @@
 				<label for="id_pend">NIK / Nama Penduduk <?= $id_pend; ?></label>
 				<select class="form-control input-sm select2 required" id="id_pend" name="id_pend">
 					<option option value="">-- Silakan Cari NIK - Nama Penduduk --</option>
+					<?php if($penduduk) : ?>
+						<option option value="all">Semua Penduduk</option>
+					<?php endif; ?>
 					<?php foreach ($penduduk as $data): ?>
 						<option value="<?= $data['id']; ?>" <?= selected($id_pend, $data['id']); ?>><?= $data['nik'] . " - " . $data['nama']; ?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 		<?php endif; ?>
-		<div class="form-group">
+		<div class="form-group" id="div-pin">
 			<label class="control-label" for="pin">PIN</label>
 			<input id="pin" name="pin" class="form-control input-sm digits" minlength="6" maxlength="6" type="text" placeholder="PIN Warga"></input>
 			<p class="help-block"><code>*) Jika PIN tidak di isi maka sistem akan menghasilkan PIN secara acak.</code></p>
 			<p class="help-block"><code>**) 6 (enam) digit Angka.</code></p>
+		</div>
+		<div class="form-group" id="div-pin-caption" style="display: none;">
+			<p class="help-block"><code>*) sistem akan menghasilkan PIN secara acak dan langsung terdownload.</code></p>
+			<p class="help-block"><code>*) simpan file yang sudah terdownload dengan baik karena tidak bisa di download lagi.</code></p>
 		</div>
 	</div>
 	<div class="modal-footer">
@@ -72,3 +79,15 @@
 		<button type="submit" class="btn btn-social btn-flat btn-info btn-sm" id="ok"><i class='fa fa-check'></i> Simpan</button>
 	</div>
 </form>
+<script>
+	$(document).off("change", "#id_pend")
+		.on("change", "#id_pend", function(e) {
+			if ($(this).val() == 'all') {
+				$('#div-pin').hide();
+				$('#div-pin-caption').show();
+			} else {
+				$('#div-pin').show();
+				$('#div-pin-caption').hide();
+			}
+		});
+</script>

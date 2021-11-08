@@ -137,19 +137,36 @@ class Mandiri_model extends CI_Model {
 	public function insert()
 	{
 		$post = $this->input->post();
-		$pin = bilangan($post['pin'] ?: $this->generate_pin($post['pin']));
+		if($post['id_pend']=='all'){
+			$penduduk = $this->list_penduduk();
+			$i=0;
+			foreach($penduduk as $p){
+				$pin = $this->generate_pin();
+				$penduduk[$i]['pin'] = $pin;
+				$data['pin'] = hash_pin($pin); // Hash PIN
+				$data['tanggal_buat'] = date("Y-m-d H:i:s");
+				$data['id_pend'] = $p['id'];
+				$outp = $this->db->insert('tweb_penduduk_mandiri', $data);
+				status_sukses($outp); //Tampilkan Pesan
+				$i++;
+			}
+			return $penduduk;
+		}else{
+			$pin = bilangan($post['pin'] ?: $this->generate_pin($post['pin']));
 
-		$data['pin'] = hash_pin($pin); // Hash PIN
-		$data['tanggal_buat'] = date("Y-m-d H:i:s");
-		$data['id_pend'] = $this->input->post('id_pend');
-		$outp = $this->db->insert('tweb_penduduk_mandiri', $data);
+			$data['pin'] = hash_pin($pin); // Hash PIN
+			$data['tanggal_buat'] = date("Y-m-d H:i:s");
+			$data['id_pend'] = $this->input->post('id_pend');
+			$outp = $this->db->insert('tweb_penduduk_mandiri', $data);
 
-		status_sukses($data); //Tampilkan Pesan
+			status_sukses($data); //Tampilkan Pesan
 
-		// Ambil data sementara untuk ditampilkan
-		$flash = $this->get_mandiri($data['id_pend']);
-		$flash['pin'] = $pin; // Normal PIN
-		$this->session->set_flashdata('info', $flash);
+			// Ambil data sementara untuk ditampilkan
+			$flash = $this->get_mandiri($data['id_pend']);
+			$flash['pin'] = $pin; // Normal PIN
+			$this->session->set_flashdata('info', $flash);
+			return false;
+		}
 	}
 
 	public function update($id_pend = NULL)

@@ -127,8 +127,12 @@ class Mandiri extends Admin_Controller {
 
 	public function insert()
 	{
-		$this->mandiri_model->insert();
-		redirect('mandiri');
+		$data['main'] = $this->mandiri_model->insert();
+		if($data['main']){
+			$this->load->view("sid/kependudukan/penduduk_mandiri_unduh", $data);
+		}else{
+			redirect('mandiri');
+		}
 	}
 
 	public function update($id_pend)
