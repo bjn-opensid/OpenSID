@@ -52,7 +52,7 @@ class Database extends Admin_Controller {
 		parent::__construct();
 		$this->load->dbforge();
 		$this->load->library('zip');
-		$this->load->model(['import_model', 'export_model', 'database_model']);
+		$this->load->model(['import_model', 'export_model', 'database_model','api_model']);
 
 		$this->modul_ini = 11;
 		$this->sub_modul_ini = 45;
@@ -60,7 +60,7 @@ class Database extends Admin_Controller {
 
 	public function clear()
 	{
-		redirect('export');
+		redirect('database/import');
 	}
 
 	public function index()
@@ -76,6 +76,10 @@ class Database extends Admin_Controller {
 			unset($_SESSION['siteman_timeout']);
 		}
 
+		redirect('database/import');
+	}
+
+	public function export(){	
 		$data['act_tab'] = 1;
 		$data['content'] = 'export/exp';
 		$this->load->view('database/database.tpl.php', $data);
@@ -596,5 +600,155 @@ class Database extends Admin_Controller {
 		curl_close($curl);
 
 		redirect('database/sinkronasi_opendk');
+	}
+
+	
+	public function sinkron_tab()
+	{
+		$data['form_action'] = site_url("database/sinkron");
+		$data['form_action_bantuan'] = site_url("database/sinkronBantuan");
+		$data['kecamatan'] = $this->database_model->get_kecamatan();
+
+		$data['act_tab'] = 7;
+		$data['content'] = 'database/sinkron';
+		$this->load->view('database/database.tpl.php', $data);
+	}
+
+	
+	public function sinkron()
+	{
+		$config = $this->api_model->getConfig();
+		$getKec = $this->api_model->getUrl($config['kode_kecamatan']);
+		$url = $getKec['url'];
+		if(strlen($config['kode_desa'])!=10){
+			$_SESSION["error_notify"] = 'danger';
+			$_SESSION['error_msg'] = 'Kode Desa Tidak Valid!!!';
+			$_SESSION['success'] = -5;
+		}else{
+			$this->load->model('penduduk_model');
+			$jum = $this->db->query('select count(id) as jml from tweb_penduduk ')->row_array()['jml'];
+			for($i = 0; $jum>$i; $i+=100){
+				$data = $this->penduduk_model->get_penduduk_sinkron(100,$i);
+				$client     = new GuzzleHttp\Client();
+				try {
+					$send = [
+						'headers' => [
+							'Accept' => 'application/json',
+							// 'Content-Type' => 'multipart/form-data',
+						],
+						'multipart' => [
+							[
+								'name' => 'penduduk',
+								'contents' => json_encode($data)
+							],
+							[
+								'name' => 'desa_id',
+								'contents' => kode_wilayah($config['kode_desa'])
+							],
+							[
+								'name' => 'desa_url',
+								'contents' => base_url()
+							]
+						]
+							];
+					$response = $client->request(
+						'POST',
+						$url . '/api/v1/penduduk/sinkron',
+						$send
+					);
+	
+					$data = (string) $response->getBody()->getContents();
+					if($data!='sukses'){
+					   echo("Sinkron tidak sukses ".$data); die;
+					}
+					$_SESSION["error_notify"] = 'success';
+					$_SESSION['error_msg'] = 'Berhasil sinkron penduduk ke Kecamatan';
+					$_SESSION['success'] = -5;
+				} catch (GuzzleHttp\Exception\BadResponseException $e) {
+					echo "error :BadResponseException <br>";
+					#guzzle repose for future use
+					$response = $e->getResponse();
+					$responseBodyAsString = $response->getBody()->getContents();
+					$_SESSION["error_notify"] = 'danger';
+					$_SESSION['error_msg'] = 'Gagal sinkron penduduk, BadResponseException';
+					$_SESSION['success'] = -5;
+					print_r($response);
+				}catch( Exception $e){
+					echo "error : Exception <br>";
+					$_SESSION["error_notify"] = 'danger';
+					$_SESSION['error_msg'] = 'Gagal sinkron penduduk, Error Exception';
+					$_SESSION['success'] = -5;
+					print_r($e);
+				}
+			}
+			sleep(1);
+			redirect('database/sinkron_tab');
+		}
+	}
+
+	public function sinkronBantuan()
+	{
+		$config = $this->api_model->getConfig();
+		$getKec = $this->api_model->getUrl($config['kode_kecamatan']);
+		$url = $getKec['url'];
+		
+		if(strlen($config['kode_desa'])!=10){
+			$_SESSION["error_notify"] = 'danger';
+			$_SESSION['error_msg'] = 'Kode Desa Tidak Valid!!!';
+			$_SESSION['success'] = -5;
+		}else{
+			$this->load->model('program_bantuan_model');
+			$data = $this->program_bantuan_model->get_sinkron_bantuan();
+			$client     = new GuzzleHttp\Client();
+			try {
+				$response = $client->request(
+					'POST',
+					$url . '/api/v1/program/sinkron',
+					[
+						'headers' => [
+							'Accept' => 'application/json',
+							// 'Content-Type' => 'multipart/form-data',
+						],
+						'multipart' => [
+							[
+								'name' => 'program',
+								'contents' => json_encode($data['program'])
+							],
+							[
+								'name' => 'peserta',
+								'contents' => json_encode($data['peserta'])
+							],
+							[
+								'name' => 'desa_id',
+								'contents' => kode_wilayah($config['kode_desa'])
+							],
+							[
+								'name' => 'desa_url',
+								'contents' => base_url()
+							]
+						]
+					]
+				);
+
+				$data = (string) $response->getBody()->getContents();
+				$_SESSION["error_notify"] = 'success';
+				$_SESSION['error_msg'] = 'Berhasil sinkron bantuan ke Kecamatan';
+				$_SESSION['success'] = -5;
+			} catch (GuzzleHttp\Exception\BadResponseException $e) {
+				#guzzle repose for future use
+				$response = $e->getResponse();
+				$responseBodyAsString = $response->getBody()->getContents();
+				$_SESSION["error_notify"] = 'danger';
+				$_SESSION['error_msg'] = 'Gagal sinkron bantuan, BadResponseException';
+				$_SESSION['success'] = -5;
+			}catch( Exception $e){
+				$_SESSION["error_notify"] = 'danger';
+				$_SESSION['error_msg'] = 'Gagal sinkron bantuan, Error Exception';
+				$_SESSION['success'] = -5;
+			}
+		}
+
+		sleep(1);
+		redirect('database/sinkron_tab');
 	}
 }

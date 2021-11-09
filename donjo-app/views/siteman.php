@@ -47,7 +47,7 @@
 	<?php if ($latar_login): ?>
 		body.login {
 			/* background: url('<?= base_url($latar_login) ?>'); */
-			background: url('/assets/images/img4.jpg') no-repeat center fixed;
+			background: url('./assets/images/img4.jpg') no-repeat center fixed;
 			-webkit-background-size: cover;
 		}
 	<?php endif; ?>

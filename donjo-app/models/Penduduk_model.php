@@ -1565,4 +1565,11 @@ class Penduduk_model extends MY_Model {
 		return $jml;
 	}
 
+	public function get_penduduk_sinkron($num, $from)
+	{
+		$this->db->join('tweb_keluarga b', 'a.id_kk=b.id', 'left');
+		$this->db->join('tweb_wil_clusterdesa c', 'a.id_cluster=c.id', 'left');
+		$data = $this->db->get('tweb_penduduk a', $num, $from)->result_array();
+		return $data;
+	}
 }

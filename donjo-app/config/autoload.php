@@ -58,7 +58,7 @@ $autoload['packages'] = array(APPPATH.'third_party');
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session');
+$autoload['libraries'] = array('database', 'session','guzzle');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array('session');
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','donjolib','date','pict','opensid','database','surat');
+$autoload['helper'] = array('url','donjolib','date','pict','opensid','database','surat','guzzle');
 
 /*
 | -------------------------------------------------------------------

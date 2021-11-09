@@ -1321,5 +1321,10 @@ class Program_bantuan_model extends MY_Model {
 		return $data;
 	}
 
+	public function get_sinkron_bantuan(){
+		$data['program'] = $this->db->get('program')->result_array();
+		$data['peserta'] = $this->db->get('program_peserta')->result_array();
+		return $data;
+	}
 }
 ?>

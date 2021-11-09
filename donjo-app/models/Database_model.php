@@ -3797,4 +3797,13 @@ class Database_model extends CI_Model {
 		return array_column($data, 'TABLE_NAME');
 	}
 
+	public function get_kecamatan(){
+		$this->db->select('kode_kecamatan');
+		$kec = $this->db->get('config')->row_array();
+		$kode_kec = $kec['kode_kecamatan'];
+		$this->db->select('id, kecamatan, url');
+		$this->db->where('id', $kode_kec);
+		$data = $this->db->get('url_opendk_kecamatan')->row_array();
+		return $data;
+	}
 }
