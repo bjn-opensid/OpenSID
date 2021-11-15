@@ -108,9 +108,11 @@
 																		<?php $surat = SuratExport($data[url_surat]); ?>
 																		<?php if ($surat != ""): ?>
 																			<a href="<?= base_url($surat)?>" class="btn btn-social btn-flat bg-purple btn-sm"  title="Unduh Template Format Surat"><i class="fa fa-download"></i>Unduh </a>
+																			<?php if(explode('/',$surat)[0]=='desa' && $data['jenis']==1) : ?>
+																				<a href="<?= site_url("surat_master/restore_default/$data[id]")?>" class="btn btn-social bg-olive btn-flat btn-sm" title="Restore Default"><i class="fa fa-undo"></i> Restore</a>
+																			<?php endif; ?>
 																		<?php endif; ?>
 																	</td>
-
 																</tr>
 															<?php endforeach;?>
 														</tbody>

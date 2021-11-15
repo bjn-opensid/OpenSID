@@ -231,4 +231,10 @@ class Surat_master extends Admin_Controller {
 		redirect("surat_master");
 	}
 
+	public function restore_default($id = 0)
+	{
+		$this->surat_master_model->restore_default($id);
+		redirect("surat_master");
+	}
+
 }

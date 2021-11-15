@@ -324,6 +324,37 @@
 		status_sukses($outp); //Tampilkan Pesan
 	}
 
+	public function restore_default($id=0)
+	{
+		$sql = "UPDATE tweb_surat_format SET mandiri = 0 WHERE id = ?";
+		$outp = $this->db->query($sql, $id);
+		if($outp){
+			$url_surat = $this->db->get_where('tweb_surat_format',['id' => $id])->row_array()['url_surat'];
+			$dat = $this->deleteDir(LOKASI_SURAT_DESA.$url_surat);
+			status_sukses($outp); //Tampilkan Pesan
+		}
+	}
+
+	private function deleteDir($dirPath) {
+		var_dump($dirPath);
+		if (! is_dir($dirPath)) {
+			 throw new InvalidArgumentException("$dirPath must be a directory");
+		}
+		if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+			 $dirPath .= '/';
+		}
+		var_dump($dirPath);
+		$files = glob($dirPath . '*', GLOB_MARK);
+		foreach ($files as $file) {
+			 if (is_dir($file)) {
+				  self::deleteDir($file);
+			 } else {
+				  unlink($file);
+			 }
+		}
+		rmdir($dirPath);
+  }
+
 	public function lock($id=0, $k=0)
 	{
 		if ($k == 1)
