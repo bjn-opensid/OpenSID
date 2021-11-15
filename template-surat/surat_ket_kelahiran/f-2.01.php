@@ -126,9 +126,13 @@ table#kode
 		<tr>
 			<td colspan="10">Kode Wilayah</td>
 			<td style="border-right: 1px solid black;">:</td>
-			<?php for ($i=0; $i<9; $i++): ?>
+			<?php for ($i=0; $i<10; $i++): ?>
 				<td class="kotak padat tengah">
-					&nbsp;
+					<?php if (isset($config['kode_desa'][$i])): ?>
+						<?= $config['kode_desa'][$i];?>
+					<?php else: ?>
+						&nbsp;
+					<?php endif; ?>
 				</td>
 			<?php endfor; ?>
 			<td colspan="28">&nbsp;</td>

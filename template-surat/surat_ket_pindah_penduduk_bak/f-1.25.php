@@ -147,7 +147,7 @@
 	<p style="text-align: center;">
 		<strong style="font-size: 12pt;">FORMULIR PERMOHONAN PINDAH WNI</strong><br>
 		<?= $input['judul_format'] ?><br>
-		No. <?= $surat['format_nomor_surat'] ?>
+		No. .................................
 	</p>
 
 	<table class="disdukcapil">
