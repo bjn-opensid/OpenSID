@@ -10,7 +10,6 @@ INSERT INTO `setting_aplikasi_options` (`id`, `id_setting`, `value`, `kode`) VAL
 INSERT INTO `setting_aplikasi_options` (`id`, `id_setting`, `value`, `kode`) VALUES (18, 12, 'Web non-aktif sama sekali', 2);
 UPDATE setting_modul SET `aktif`='1' WHERE `id`='50';
 ALTER TABLE komentar ADD `no_hp` varchar(15) DEFAULT NULL;
-
 DELETE FROM `user_grup` WHERE `id`='5';
 
 

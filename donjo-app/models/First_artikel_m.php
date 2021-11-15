@@ -427,7 +427,7 @@ class First_artikel_m extends CI_Model {
 		if ($query->num_rows() > 0)
 		{
 			$data = $query->row_array();
-			$this->sterilkan_artikel($data);
+			// $this->sterilkan_artikel($data);
 		}
 		else
 		{
