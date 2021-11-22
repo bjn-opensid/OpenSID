@@ -179,9 +179,9 @@
 			<?php endfor; ?>
 		</tr>
 
-		<tr>
+		<!-- <tr>
 			<td colspan=24>&nbsp;</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td colspan=2><strong>DATA KEPINDAHAN</strong></td>
 			<td colspan=22>&nbsp;</td>
@@ -410,23 +410,27 @@
 	</table>
 
 	<table class="ttd">
-		<col style="width:35%; text-align: left; padding-left: 60px;">
-		<col style="width:30%">
+		<col style="width:30%; text-align: left; padding-left: 10px;">
+		<col style="width:35%; text-align: center;">
 		<col style="width:35%; text-align: left;">
-		<tr class="pendek">
+		<tr>
 			<td>Diketahui oleh:</td>
 			<td>&nbsp;</td>
 			<td>Dikeluarkan oleh:</td>
 		</tr>
-		<tr class="pendek">
+		<tr>
 			<td>Camat</td>
 			<td>Pemohon</td>
 			<td><?= $this->penandatangan_lampiran($data); ?></td>
 		</tr>
-		<tr class="pendek">
-			<td><?= str_replace(" ", "&nbsp;", "No                           .., tgl.       ., 20") ?></td>
+		<tr>
+			<td>
+				<?= tgl_indo(date("Y m d")); ?>
+			</td>
 			<td>&nbsp;</td>
-			<td><?= str_replace(" ", "&nbsp;", "No                           .., tgl.       ., 20") ?></td>
+			<td>
+				<?= tgl_indo(date("Y m d")); ?>
+			</td>
 		</tr>
 		<tr style="font-size: 8mm; line-height: normal;">
 			<td>&nbsp;</td>
@@ -434,17 +438,20 @@
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td>(.........................................................)</td>
-			<td><strong>(<?= padded_string_center(strtoupper($individu['kepala_kk']), 30) ?>)</strong></td>
-			<td><strong>(<?= padded_string_center(strtoupper($kepala_desa['pamong_nama']), 30) ?>)</strong></td>
+			<td><?= strtoupper($config['nama_kepala_camat']); ?></td>
+			<td>(<?= strtoupper($individu['nama']) ?>)</td>
+			<td>(<?= strtoupper($input['pamong']) ?>)</td>
 		</tr>
 		<tr>
-			<td>NIP.</td>
+			<td>NIP : <?= $config['nip_kepala_camat']; ?></td>
 			<td>&nbsp;</td>
-			<td>NIP.</td>
+			<td>
+				<?php if($input['pamong_nip']) : ?>
+					NIP. <?= $input['pamong_nip'] ?>
+				<?php endif; ?>
+			</td>
 		</tr>
 	</table>
-
 	<table class="disdukcapil">
 		<col style="width: 3%;">
 		<col style="width: 24.4%;">
@@ -659,12 +666,16 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td>Camat</td>
-			<td>Kepala Desa/Lurah</td>
+			<td><?= $this->penandatangan_lampiran($data); ?></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><?= str_replace(" ", "&nbsp;", "No                           .., tgl.       ., 20") ?></td>
-			<td><?= str_replace(" ", "&nbsp;", "No                           .., tgl.       ., 20") ?></td>
+			<td>
+				<?= tgl_indo(date("Y m d")); ?>
+			</td>
+			<td>
+				<?= tgl_indo(date("Y m d")); ?>
+			</td>
 		</tr>
 		<tr style="font-size: 8mm; line-height: normal;">
 			<td>&nbsp;</td>
@@ -673,13 +684,17 @@
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td>(.........................................................)</td>
-			<td>(.........................................................)</td>
+			<td><?= $config['nama_kepala_camat']; ?></td>
+			<td>(<?= $input['pamong']; ?>)</td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td>NIP.</td>
-			<td>NIP.</td>
+			<td>NIP : <?= $config['nip_kepala_camat']; ?></td>
+			<td>
+				<?php if($input['pamong_nip']) : ?>
+					NIP. <?= $input['pamong_nip'] ?>
+				<?php endif; ?>
+			</td>
 		</tr>
 	</table>
 

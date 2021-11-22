@@ -484,7 +484,7 @@ class Wilayah_model extends MY_Model {
 		$data = $this->db->select('p.id, p.nik, p.nama, c.dusun')
 			->from('penduduk_hidup p')
 			->join('tweb_wil_clusterdesa c', 'p.id_cluster = c.id', 'left')
-			->where('p.id NOT IN (SELECT c.id_kepala FROM tweb_wil_clusterdesa c WHERE c.id_kepala != 0)')
+			// ->where('p.id NOT IN (SELECT c.id_kepala FROM tweb_wil_clusterdesa c WHERE c.id_kepala != 0)')
 			->get()->result_array();
 		return $data;
 	}

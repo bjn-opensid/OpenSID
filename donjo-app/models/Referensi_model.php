@@ -109,7 +109,7 @@ define("STAT_PENDUDUK", serialize([
 	'17' => 'Akta Kelahiran',
 	'18' => 'Kepemilikan KTP',
 	'19' => 'Jenis Asuransi',
-	'covid' => 'Status Covid'
+	// 'covid' => 'Status Covid'
 ]));
 
 // Statistik Keluarga

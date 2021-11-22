@@ -842,7 +842,12 @@ class Surat_model extends CI_Model {
 		$file = SuratExportDesa($url);
 		if ($file == "")
 		{
-			$file = "template-surat/$url/$url.rtf";
+			// khusus surat_ket_pindah_penduduk
+			if($input['kode_format']=='f108'){
+				$file = "template-surat/$url/".$url."_datang.rtf";
+			}else{
+				$file = "template-surat/$url/$url.rtf";
+			}
 		}
 
 		if (is_file($file))
@@ -1097,7 +1102,6 @@ class Surat_model extends CI_Model {
 		$daftar_lampiran = explode(",", $surat['lampiran']);
     include($this->get_file_data_lampiran($surat['url_surat'], $surat['lokasi_rtf']));
 		$lampiran = pathinfo($nama_surat, PATHINFO_FILENAME)."_lampiran.pdf";
-
     // convert in PDF
 		try {
 		    // get the HTML using output buffer

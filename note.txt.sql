@@ -15,8 +15,8 @@ ALTER TABLE komentar ADD `no_hp` varchar(15) DEFAULT NULL;
 
 
 #shell
-cp desa-contoh/upload/user_pict/kuser.png desa/upload/user_pict/
-cp desa-contoh/upload/user_pict/wuser.png desa/upload/user_pict/
+sudo cp /home/egov/OpenSID/desa-contoh/upload/user_pict/kuser.png desa/upload/user_pict/
+sudo cp /home/egov/OpenSID/desa-contoh/upload/user_pict/wuser.png desa/upload/user_pict/
 sudo chown 33:33 -R .
 rm cache/*
 

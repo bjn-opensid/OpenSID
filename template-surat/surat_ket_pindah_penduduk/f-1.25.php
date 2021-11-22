@@ -492,7 +492,11 @@
 		</tr>
 		<tr>
 			<td>NIP : <?= $config['nip_kepala_camat']; ?></td>
-			<td></td>
+			<td>
+				<?php if($input['pamong_nip']) : ?>
+					NIP. <?= $input['pamong_nip'] ?>
+				<?php endif; ?>
+			</td>
 			<td></td>
 		</tr>
 	</table>
