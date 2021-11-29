@@ -49,12 +49,29 @@
 							<th>Umur</th>
 							<th>Agama</th>
 							<th>Pendidikan (dlm KK)</th>
+							<th>Pendidikan (Sedang Ditempuh)</th>
 							<th>Pekerjaan</th>
 							<th>Kawin</th>
 							<th>Hub. Keluarga</th>
+							<th>Kewarganegaraan</th>
+							<th>Golongan Darah</th>
+							<th>Akta Lahir</th>
+							<th>Dokumen Pasport</th>
+							<th>Tanggal Akhir Pasport</th>
+							<th>NIK Ayah</th>
 							<th>Nama Ayah</th>
+							<th>NIK Ibu</th>
 							<th>Nama Ibu</th>
-							<th>Status</th>
+							<th>Akta Perkawinan</th>
+							<th>Tanggal Perkawinan</th>
+							<th>Akta Perceraian</th>
+							<th>Tanggal Perceraian</th>
+							<th>Cacat</th>
+							<th>Cara KB</th>
+							<th>Status Hamil</th>
+							<th>KTP EL</th>
+							<th>Status Rekam</th>
+							<th>Status Penduduk</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -74,11 +91,28 @@
 							<td align="right"><?= $data['umur']?></td>
 							<td><?= $data['agama']?></td>
 							<td><?= $data['pendidikan']?></td>
+							<td><?= $data['pendidikan_sedang']?></td>
 							<td><?= $data['pekerjaan']?></td>
 							<td><?= $data['kawin']?></td>
 							<td><?= $data['hubungan']?></td>
+							<td><?= $data['warganegara']?></td>
+							<td><?= $data['gol_darah']?></td>
+							<td><?= $data['akta_lahir']?></td>
+							<td><?= $data['dokumen_pasport']?></td>
+							<td><?= tgl_indo($data['tanggal_akhir_paspor']) ?></td>
+							<td><?= $data['ayah_nik']?></td>
 							<td><?= $data['nama_ayah']?></td>
+							<td><?= $data['ibu_nik']?></td>
 							<td><?= $data['nama_ibu']?></td>
+							<td><?= $data['akta_perkawinan']?></td>
+							<td><?= tgl_indo($data['tanggalperkawinan'])?></td>
+							<td><?= $data['akta_perceraian']?></td>
+							<td><?= tgl_indo($data['tanggalperceraian'])?></td>
+							<td><?= $data['cacat']?></td>
+							<td><?= $data['cara_kb']?></td>
+							<td><?php if ($data['hamil']==1): ?>Hamil<?php else: ?>Tidak Hamil<?php endif; ?></td>
+							<td><?= $data['ktp_el']?></td>
+							<td><?= $data['status_rekam']?></td>
 							<td><?php if ($data['status']==1): ?>Tetap<?php else: ?>Pendatang<?php endif; ?></td>
 						</tr>
 						<?php endforeach; ?>

@@ -408,9 +408,10 @@ class Penduduk_model extends MY_Model {
 						else 'KAWIN TERCATAT'
 					end
 			end) as kawin,
+			u.akta_lahir as akta_lahir, u.dokumen_pasport as dokumen_pasport, u.tanggal_akhir_paspor as tanggal_akhir_paspor, u.ayah_nik as ayah_nik, u.nama_ayah as nama_ayah, u.ibu_nik as ibu_nik, u.nama_ibu as nama_ibu, u.akta_perkawinan as akta_perkawinan, u.tanggalperkawinan as tanggalperkawinan, u.akta_perceraian as akta_perceraian, u.tanggalperceraian as tanggalperceraian, u.hamil as hamil,
 			(DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(u.tanggallahir)), '%Y')+0) AS umur,
 			(DATE_FORMAT(FROM_DAYS(TO_DAYS(log.tgl_peristiwa)-TO_DAYS(u.tanggallahir)), '%Y')+0) AS umur_pada_peristiwa,
-			x.nama AS sex, sd.nama AS pendidikan_sedang, n.nama AS pendidikan, p.nama AS pekerjaan, g.nama AS agama, m.nama AS gol_darah, hub.nama AS hubungan, b.no_kk AS no_rtm, b.id AS id_rtm
+			x.nama AS sex, sd.nama AS pendidikan_sedang, n.nama AS pendidikan, p.nama AS pekerjaan, g.nama AS agama, m.nama AS gol_darah, hub.nama AS hubungan, b.no_kk AS no_rtm, b.id AS id_rtm, v.nama as warganegara, f.nama as cacat, kb.nama as cara_kb, ktp.nama as ktp_el, rek.nama as status_rekam
 		");
 
 		$this->db->from("($query_dasar) as u");
@@ -519,6 +520,9 @@ class Penduduk_model extends MY_Model {
 			->join('covid19_pemudik c', 'c.id_terdata = u.id', 'left')
 			->join('ref_status_covid rc', 'c.status_covid = rc.nama', 'left')
 			->join('program_peserta pp', 'u.nik = pp.peserta', 'left')
+			->join('tweb_cara_kb kb', 'u.cara_kb_id = kb.id', 'left')
+			->join('tweb_status_ktp ktp', 'u.ktp_el = ktp.ktp_el', 'left')
+			->join('tweb_status_ktp rek', 'u.status_rekam = rek.status_rekam', 'left')
 			->group_by('u.id');
 	}
 

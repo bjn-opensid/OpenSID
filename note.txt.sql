@@ -14,6 +14,7 @@ DELETE FROM `user_grup` WHERE `id`='5';
 ALTER TABLE komentar ADD `no_hp` varchar(15) DEFAULT NULL;
 
 
+
 #shell
 sudo cp /home/egov/OpenSID/desa-contoh/upload/user_pict/kuser.png desa/upload/user_pict/
 sudo cp /home/egov/OpenSID/desa-contoh/upload/user_pict/wuser.png desa/upload/user_pict/
