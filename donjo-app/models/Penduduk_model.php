@@ -731,7 +731,6 @@ class Penduduk_model extends MY_Model {
 		$_SESSION['error_msg'] = '';
 
 		$data = $_POST;
-
 		$error_validasi = $this->validasi_data_penduduk($data);
 		if (!empty($error_validasi))
 		{
@@ -1570,6 +1569,17 @@ class Penduduk_model extends MY_Model {
 		$this->db->join('tweb_keluarga b', 'a.id_kk=b.id', 'left');
 		$this->db->join('tweb_wil_clusterdesa c', 'a.id_cluster=c.id', 'left');
 		$data = $this->db->get('tweb_penduduk a', $num, $from)->result_array();
+		return $data;
+	}
+
+	public function list_penduduk()
+	{
+		$data = $this->db->select('u.id, u.nik, u.nama, w.dusun, w.rw, w.rt, u.sex')
+			->from('penduduk_hidup u')
+			->join('tweb_wil_clusterdesa w', 'u.id_cluster = w.id', 'left')
+			->get()
+			->result_array();
+
 		return $data;
 	}
 }

@@ -218,6 +218,7 @@ class Penduduk extends Admin_Controller {
 		
 		$this->session->unset_userdata(['dari_internal']);
 
+		$data['penduduk_ortu']	= $this->penduduk_model->list_penduduk();
 		$this->set_minsidebar(1);
 		$this->render('sid/kependudukan/penduduk_form', $data);
 	}

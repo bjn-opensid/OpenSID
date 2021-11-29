@@ -405,32 +405,72 @@
 						<label class="text-right"><strong>DATA ORANG TUA :</strong></label>
 					</div>
 				</div>
-				<div class="col-sm-12">
+				<script>
+					function setAyah(){
+						var val = $("#id_ayah").val();
+						val = val.split(",");
+						$('#ayah_nik').val(val[0]);
+						$('#nama_ayah').val(val[1]);
+					}
+					function setIbu(){
+						var val = $("#id_ibu").val();
+						val = val.split(",");
+						$('#ibu_nik').val(val[0]);
+						$('#nama_ibu').val(val[1]);
+					}
+				</script>
+				<div class="col-md-12">
+					<div class="row" style="margin-bottom: 1rem;">
+						<label class="col-sm-4 col-lg-2 control-label" for="id_ayah">Data Ayah Dari Database</label>
+						<div class="col-sm-7">
+							<select class="form-control select2 input-sm" id="id_ayah" onchange="setAyah()" style="width:100%" >
+								<option selected="selected">-- Silakan Masukan NIK / Nama--</option>
+								<?php foreach ($penduduk_ortu as $data): ?>
+									<option value="<?= $data['nik']?>,<?= $data['nama'] ?>">NIK : <?= $data['nik']." - ".$data['nama']." - ".$data['dusun']?></option>
+								<?php endforeach;?>
+							</select>
+						</div>
+					</div>
 					<div class="row">
 						<div class='col-sm-4'>
 							<div class='form-group'>
 								<label for="ayah_nik"> NIK Ayah </label>
-								<input id="ayah_nik" name="ayah_nik" class="form-control input-sm nik" type="text" placeholder="Nomor NIK Ayah" value="<?= $penduduk['ayah_nik']?>"></input>
+								<input id="ayah_nik" name="ayah_nik" class="form-control input-sm nik data_ayah" type="text" placeholder="Nomor NIK Ayah" value="<?= $penduduk['ayah_nik']?>"></input>
 							</div>
 						</div>
 						<div class='col-sm-8'>
 							<div class='form-group'>
 								<label for="nama_ayah">Nama Ayah </label>
-								<input id="nama_ayah" name="nama_ayah" class="form-control input-sm required nama" maxlength="100" type="text" placeholder="Nama Ayah" value="<?= strtoupper($penduduk['nama_ayah'])?>"></input>
+								<input id="nama_ayah" name="nama_ayah" class="form-control input-sm required nama data_ayah" maxlength="100" type="text" placeholder="Nama Ayah" value="<?= strtoupper($penduduk['nama_ayah'])?>"></input>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class='col-sm-4'>
-					<div class='form-group'>
-						<label for="ibu_nik"> NIK Ibu </label>
-						<input id="ibu_nik" name="ibu_nik" class="form-control input-sm nik" type="text" placeholder="Nomor NIK Ibu" value="<?= $penduduk['ibu_nik']?>"></input>
+				<div class="col-md-12">
+					<div class="row" style="margin-bottom: 1rem;">
+						<label class="col-sm-4 col-lg-2 control-label" for="id_ibu">Data Ibu Dari Database</label>
+						<div class="col-sm-7">
+							<select class="form-control select2 input-sm" id="id_ibu" onchange="setIbu()" style="width:100%" >
+								<option selected="selected">-- Silakan Masukan NIK / Nama--</option>
+								<?php foreach ($penduduk_ortu as $data): ?>
+									<option value="<?= $data['nik']?>,<?= $data['nama'] ?>">NIK : <?= $data['nik']." - ".$data['nama']." - ".$data['dusun']?></option>
+								<?php endforeach;?>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class='col-sm-8'>
-					<div class='form-group'>
-						<label for="nama_ibu">Nama Ibu </label>
-						<input id="nama_ibu" name="nama_ibu" class="form-control input-sm required nama" maxlength="100" type="text" placeholder="Nama Ibu" value="<?= strtoupper($penduduk['nama_ibu'])?>"></input>
+					<div class="row">
+						<div class='col-sm-4'>
+							<div class='form-group'>
+								<label for="ibu_nik">NIK Ibu </label>
+								<input id="ibu_nik" name="ibu_nik" class="form-control input-sm nik data_ibu" type="text" placeholder="Nomor NIK Ibu" value="<?= $penduduk['ibu_nik']?>"></input>
+							</div>
+						</div>
+						<div class='col-sm-8'>
+							<div class='form-group'>
+								<label for="nama_ibu">Nama Ibu </label>
+								<input id="nama_ibu" name="nama_ibu" class="form-control input-sm required nama data_ibu" maxlength="100" type="text" placeholder="Nama Ibu" value="<?= strtoupper($penduduk['nama_ibu'])?>"></input>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class='col-sm-12'>
