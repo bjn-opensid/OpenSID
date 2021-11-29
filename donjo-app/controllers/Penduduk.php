@@ -218,7 +218,8 @@ class Penduduk extends Admin_Controller {
 		
 		$this->session->unset_userdata(['dari_internal']);
 
-		$data['penduduk_ortu']	= $this->penduduk_model->list_penduduk();
+		$data['penduduk_ayah']	= $this->penduduk_model->list_penduduk(1);
+		$data['penduduk_ibu']	= $this->penduduk_model->list_penduduk(2);
 		$this->set_minsidebar(1);
 		$this->render('sid/kependudukan/penduduk_form', $data);
 	}

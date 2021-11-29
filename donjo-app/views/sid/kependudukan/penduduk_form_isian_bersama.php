@@ -425,7 +425,7 @@
 						<div class="col-sm-7">
 							<select class="form-control select2 input-sm" id="id_ayah" onchange="setAyah()" style="width:100%" >
 								<option selected="selected">-- Silakan Masukan NIK / Nama--</option>
-								<?php foreach ($penduduk_ortu as $data): ?>
+								<?php foreach ($penduduk_ayah as $data): ?>
 									<option value="<?= $data['nik']?>,<?= $data['nama'] ?>">NIK : <?= $data['nik']." - ".$data['nama']." - ".$data['dusun']?></option>
 								<?php endforeach;?>
 							</select>
@@ -452,7 +452,7 @@
 						<div class="col-sm-7">
 							<select class="form-control select2 input-sm" id="id_ibu" onchange="setIbu()" style="width:100%" >
 								<option selected="selected">-- Silakan Masukan NIK / Nama--</option>
-								<?php foreach ($penduduk_ortu as $data): ?>
+								<?php foreach ($penduduk_ibu as $data): ?>
 									<option value="<?= $data['nik']?>,<?= $data['nama'] ?>">NIK : <?= $data['nik']." - ".$data['nama']." - ".$data['dusun']?></option>
 								<?php endforeach;?>
 							</select>

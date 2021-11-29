@@ -1572,12 +1572,15 @@ class Penduduk_model extends MY_Model {
 		return $data;
 	}
 
-	public function list_penduduk()
+	public function list_penduduk($sex=null)
 	{
-		$data = $this->db->select('u.id, u.nik, u.nama, w.dusun, w.rw, w.rt, u.sex')
+		$this->db->select('u.id, u.nik, u.nama, w.dusun, u.sex')
 			->from('penduduk_hidup u')
-			->join('tweb_wil_clusterdesa w', 'u.id_cluster = w.id', 'left')
-			->get()
+			->join('tweb_wil_clusterdesa w', 'u.id_cluster = w.id', 'left');
+		if($sex){
+			$this->db->where('u.sex', $sex);
+		}
+		$data = $this->db->get()
 			->result_array();
 
 		return $data;
