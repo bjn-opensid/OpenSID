@@ -142,7 +142,8 @@
 			array('pekerjaan_id','pekerjaan_id'),
 			array('agama','agama_id'),
 			array('warganegara','warganegara_id'),
-			array('golongan_darah','golongan_darah_id')
+			array('golongan_darah','golongan_darah_id'),
+			array('hubungan','kk_level')
 		);
 		foreach ($kolom_kode as $kolom)
 		{

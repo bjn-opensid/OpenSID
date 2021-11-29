@@ -387,7 +387,7 @@ class Penduduk extends Admin_Controller {
 
 	public function ajax_adv_search()
 	{
-		$list_session = array('umur_min', 'umur_max', 'pekerjaan_id', 'status', 'agama', 'pendidikan_sedang_id', 'pendidikan_kk_id', 'status_penduduk');
+		$list_session = array('umur_min', 'umur_max', 'pekerjaan_id', 'status', 'agama', 'pendidikan_sedang_id', 'pendidikan_kk_id', 'status_penduduk','hubungan');
 
 		foreach ($list_session as $session)
 		{
@@ -400,6 +400,7 @@ class Penduduk extends Admin_Controller {
 		$data['list_pekerjaan'] = $this->referensi_model->list_data('tweb_penduduk_pekerjaan');
 		$data['list_status_kawin'] = $this->referensi_model->list_data('tweb_penduduk_kawin');
 		$data['list_status_penduduk'] = $this->referensi_model->list_data('tweb_penduduk_status');
+		$data['list_hubungan'] = $this->penduduk_model->list_hubungan();
 		$data['form_action'] = site_url("penduduk/adv_search_proses");
 
 		$this->load->view("sid/kependudukan/ajax_adv_search_form", $data);
@@ -429,7 +430,7 @@ class Penduduk extends Admin_Controller {
 				$_SESSION[$col[$i]] = $adv_search[$col[$i]];
 			}
 		}
-
+		
 		redirect('penduduk');
 	}
 
@@ -444,6 +445,7 @@ class Penduduk extends Admin_Controller {
 		$data['pendidikan_kk_id'] = $post['pendidikan_kk_id'];
 		$data['status_penduduk'] = $post['status_penduduk'];
 		$data['filter'] = $post['status_penduduk'];
+		$data['hubungan'] = $post['hubungan'];
 
 		return $data;
 	}
