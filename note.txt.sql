@@ -8,10 +8,14 @@ INSERT INTO `setting_aplikasi` (`id`, `key`, `value`, `keterangan`, `jenis`, `ka
 INSERT INTO `setting_aplikasi_options` (`id`, `id_setting`, `value`, `kode`) VALUES (16, 12, 'Web bisa diakses publik', 0);
 INSERT INTO `setting_aplikasi_options` (`id`, `id_setting`, `value`, `kode`) VALUES (17, 12, 'Web hanya bisa diakses petugas web', 1);
 INSERT INTO `setting_aplikasi_options` (`id`, `id_setting`, `value`, `kode`) VALUES (18, 12, 'Web non-aktif sama sekali', 2);
-UPDATE setting_modul SET `aktif`='1' WHERE `id`='50';
+UPDATE setting_modul SET `aktif`='1' WHERE `id`='50'; 
 UPDATE setting_modul SET `aktif`='0',`hidden`='1' WHERE `id`='331';
 DELETE FROM `user_grup` WHERE `id`='5';
 ALTER TABLE komentar ADD `no_hp` varchar(15) DEFAULT NULL;
+
+#ke2
+UPDATE setting_modul SET `url`='' WHERE `id`='4';
+UPDATE setting_modul SET `url`='surat' WHERE `id`='31';
 
 
 
