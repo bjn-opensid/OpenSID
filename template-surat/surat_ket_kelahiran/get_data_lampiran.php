@@ -60,6 +60,15 @@
 		$input['sex']					= $bayi['sex_id'];
 		$input['hari']	  		= hari(strtotime($bayi['tanggallahir']));
 		$input['tanggal']	  	= $bayi['tanggallahir'];
+		$input['tanggal']	  	= $bayi['tanggallahir'];
+		$input['tanggal']	  	= $bayi['tanggallahir'];
+		$input['alamat_bayi']    				= trim($bayi['alamat'].' '.$bayi['dusun']);
+		$input['rt_bayi']    						= $bayi['rt'];
+		$input['rw_bayi']    						= $bayi['rw'];
+		$input['desabayi']       				= $config['nama_desa'];
+		$input['kecbayi']       					= $config['nama_kecamatan'];
+		$input['kabbayi']       					= $config['nama_kabupaten'];
+		$input['provinsibayi']   				= $config['nama_propinsi'];
 	}
 	// Jika ibu dari database, gunakan data ibu untuk info kepala keluarga.
 	// Kalau tidak, gunakan data yang lahir. Salah satu harus dari database.
