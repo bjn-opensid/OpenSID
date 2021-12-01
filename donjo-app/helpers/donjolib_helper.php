@@ -326,6 +326,20 @@
 		$jam = empty($jam) ? '' : ' '.$jam;
 		return $tahun.'-'.$bulan.'-'.$tanggal.$jam;
 	}
+	
+	function hari_indo($hari)
+	{
+		$hari_list = [
+			'Monday' => 'Senin',
+			'Tuesday' => 'Selasa',
+			'Wednesday' => 'Rabu',
+			'Thursday' => 'Kamis',
+			'Friday' => "Jum'at",
+			'Saturday' => "Sabtu",
+			'Sunday' => "Minggu",
+		];
+		return $hari_list[$hari];
+	}
 
 	function waktu_ind($time){
 		$str ="";

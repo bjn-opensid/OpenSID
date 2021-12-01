@@ -17,6 +17,7 @@
 		$input['alamat_ibu'] = trim($ibu['alamat'].' '.$ibu['dusun']);
 		$input['rt_ibu'] = $ibu['rt'];
 		$input['rw_ibu'] = $ibu['rw'];
+		$input['tanggalperkawinan_ibu']	= $ibu['tanggalperkawinan'];
 		$input['desaibu'] = $config['nama_desa'];
 		$input['kecibu'] = $config['nama_kecamatan'];
 		$input['kabibu'] = $config['nama_kabupaten'];

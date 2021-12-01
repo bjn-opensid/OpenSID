@@ -174,7 +174,7 @@
 								<div class="form-group">
 									<label for="anakke"  class="col-sm-3 control-label">Anak Ke</label>
 									<div class="col-sm-2">
-										<input type="text" name="anakke" class="form-control input-sm data_lahir required" placeholder="Anak Ke" value="<?= $_SESSION['post']['anakke']?>"></input>
+										<input type="text" name="anakke" class="form-control input-sm data_lahir required" placeholder="Anak Ke" value="<?php echo (isset($individu)) ? $individu['kelahiran_anak_ke'] : $_SESSION['post']['anakke'] ?>"></input>
 									</div>
 								</div>
 								<!-- AYAH -->

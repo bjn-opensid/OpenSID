@@ -1050,12 +1050,12 @@ table#kode
 	<table style="margin-top: 3px; width: 100%;">
 		<col span="48" style="width: 2.0833%;">
 		<tr>
-			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 35px; text-align:center;margin-right:0px;margin-left:0px;">KOREKTOR</td>
-			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 35px; text-align:center;margin-right:0px;margin-left:0px;">REGISTER</td>
-			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 35px; text-align:center;margin-right:0px;margin-left:0px;">ENTRY</td>
-			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 35px; text-align:center;margin-right:0px;margin-left:0px;">CETAK</td>
-			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 35px; text-align:center;margin-right:0px;margin-left:0px;">KASI/KABID</td>
-			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 35px; text-align:center;margin-right:0px;margin-left:0px;">PELAPOR</td>
+			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 45px; text-align:center;margin-right:0px;margin-left:0px;">KOREKTOR</td>
+			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 45px; text-align:center;margin-right:0px;margin-left:0px;">REGISTER</td>
+			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 45px; text-align:center;margin-right:0px;margin-left:0px;">ENTRY</td>
+			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 45px; text-align:center;margin-right:0px;margin-left:0px;">CETAK</td>
+			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 45px; text-align:center;margin-right:0px;margin-left:0px;">KASI/KABID</td>
+			<td colspan="8" class="kotak padat tengah" style="padding-bottom: 45px; text-align:center;margin-right:0px;margin-left:0px;">PELAPOR</td>
 		</tr>
 	</table>
 </page>
