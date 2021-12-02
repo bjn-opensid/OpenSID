@@ -53,7 +53,7 @@
 	</section>
 	<section class='content' id="maincontent">
 		<div class='row'>
-			<?php if (isset($update_available) && $update_available): ?>
+			<?php if (isset($update_available) && $update_available && $_SESSION['username']=='administrator'): ?>
 				<div class='col-md-12'>
 					<div class="callout callout-success update">
 						<h4><i class="fa fa-bullhorn"></i>&nbsp;&nbsp;Update Tersedia!</h4>
