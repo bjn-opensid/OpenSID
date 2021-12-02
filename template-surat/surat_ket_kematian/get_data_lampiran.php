@@ -11,7 +11,7 @@
 		$input['nik_ibu'] = $ibu['nik'];
 		$input['nama_ibu'] = $ibu['nama'];
 		$input['tanggal_lahir_ibu']	= $ibu['tanggallahir'];
-		$input['umur_ibu'] = str_pad($ibu['umur'], 3, "0", STR_PAD_LEFT);
+		$input['umur_ibu'] = str_pad($ibu['umur'], 3, " ", STR_PAD_LEFT);
 		$input['pekerjaanid_ibu'] = str_pad($ibu['pekerjaan_id'], 2, "0", STR_PAD_LEFT);
 		$input['pekerjaanibu'] = $ibu['pek'];
 		$input['alamat_ibu'] = trim($ibu['alamat'].' '.$ibu['dusun']);
@@ -35,7 +35,7 @@
 		$input['nik_ayah'] = $ayah['nik'];
 		$input['nama_ayah'] = $ayah['nama'];
 		$input['tanggal_lahir_ayah'] = $ayah['tanggallahir'];
-		$input['umur_ayah']	= str_pad($ayah['umur'], 3, "0", STR_PAD_LEFT);
+		$input['umur_ayah']	= str_pad($ayah['umur'], 3, " ", STR_PAD_LEFT);
 		$input['pekerjaanid_ayah'] = str_pad($ayah['pekerjaan_id'], 2, "0", STR_PAD_LEFT);
 		$input['pekerjaanayah'] = $ayah['pek'];
 		$input['alamat_ayah'] = trim($ayah['alamat'].' '.$ayah['dusun']);
@@ -58,7 +58,7 @@
 		$input['nik_pelapor'] = $pelapor['nik'];
 		$input['nama_pelapor'] = $pelapor['nama'];
 		$input['tanggal_lahir_pelapor']	= $pelapor['tanggallahir'];
-		$input['umur_pelapor'] = str_pad($pelapor['umur'], 3, "0", STR_PAD_LEFT);
+		$input['umur_pelapor'] = str_pad($pelapor['umur'], 3, " ", STR_PAD_LEFT);
 		$input['jkpelapor']	= $pelapor['sex_id'];
 		$input['pekerjaanid_pelapor'] = str_pad($pelapor['pekerjaan_id'], 2, "0", STR_PAD_LEFT);
 		$input['pekerjaanpelapor'] = $pelapor['pekerjaan'];
@@ -82,7 +82,7 @@
 		$input['nik_saksi1'] = $saksi1['nik'];
 		$input['nama_saksi1'] = $saksi1['nama'];
 		$input['tanggal_lahir_saksi1'] = $saksi1['tanggallahir'];
-		$input['umur_saksi1']	= str_pad($saksi1['umur'], 3, "0", STR_PAD_LEFT);
+		$input['umur_saksi1']	= str_pad($saksi1['umur'], 3, " ", STR_PAD_LEFT);
 		$input['jksaksi1'] = $saksi1['sex_id'];
 		$input['pekerjaanid_saksi1'] = str_pad($saksi1['pekerjaan_id'], 2, "0", STR_PAD_LEFT);
 		$input['pekerjaansaksi1']	= $saksi1['pekerjaan'];
@@ -106,7 +106,7 @@
 		$input['nik_saksi2'] = $saksi2['nik'];
 		$input['nama_saksi2'] = $saksi2['nama'];
 		$input['tanggal_lahir_saksi2'] = $saksi2['tanggallahir'];
-		$input['umur_saksi2']	= str_pad($saksi2['umur'], 3, "0", STR_PAD_LEFT);
+		$input['umur_saksi2']	= str_pad($saksi2['umur'], 3, " ", STR_PAD_LEFT);
 		$input['jksaksi2'] = $saksi2['sex_id'];
 		$input['pekerjaanid_saksi2'] = str_pad($saksi2['pekerjaan_id'], 2, "0", STR_PAD_LEFT);
 		$input['pekerjaansaksi2']	= $saksi2['pekerjaan'];
