@@ -17,6 +17,9 @@ ALTER TABLE komentar ADD `no_hp` varchar(15) DEFAULT NULL;
 UPDATE setting_modul SET `url`='' WHERE `id`='4';
 UPDATE setting_modul SET `url`='surat' WHERE `id`='31';
 
+#surat ahli Waris
+INSERT INTO `tweb_surat_format` VALUES (7, 'Ahli Waris', 'surat_ahli_waris', '000', NULL, 0, 0, 1, 1, 1, 'M', 0);
+
 
 
 #shell
