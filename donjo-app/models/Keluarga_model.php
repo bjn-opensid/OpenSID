@@ -131,7 +131,7 @@
 				selalu digunakan dalam pencarian function status_dasar_sql
 		*/
 		$sql = "FROM tweb_keluarga u
-			JOIN tweb_penduduk t ON u.nik_kepala = t.id
+			LEFT JOIN tweb_penduduk t ON u.nik_kepala = t.id
 			LEFT JOIN tweb_wil_clusterdesa c ON u.id_cluster = c.id";
 
 		// Yg berikut hanya untuk menampilkan peserta bantuan

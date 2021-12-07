@@ -210,6 +210,8 @@ class Keluarga extends Admin_Controller {
 			$data['status_penduduk'] = $this->referensi_model->list_data('tweb_penduduk_status', null, 1);
 		$data['jenis_peristiwa'] = $this->session->jenis_peristiwa;
 
+		$data['penduduk_ayah']	= $this->penduduk_model->list_penduduk(1);
+		$data['penduduk_ibu']	= $this->penduduk_model->list_penduduk(2);
 		$this->session->unset_userdata(['dari_internal']);
 		$this->set_minsidebar(1);
 
