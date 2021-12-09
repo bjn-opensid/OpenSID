@@ -20,6 +20,11 @@ UPDATE setting_modul SET `url`='surat' WHERE `id`='31';
 #surat ahli Waris
 INSERT INTO `tweb_surat_format` VALUES (7, 'Ahli Waris', 'surat_ahli_waris', '000', NULL, 0, 0, 1, 1, 1, 'M', 0);
 
+#ke3
+UPDATE setting_modul SET `aktif`='1' WHERE `id`='101'; 
+UPDATE setting_modul SET `hidden`='1' WHERE `id`='101'; 
+UPDATE setting_modul SET `aktif`='1' WHERE `id`='5'; 
+UPDATE setting_modul SET `hidden`='1' WHERE `id`='5'; 
 
 
 #shell
