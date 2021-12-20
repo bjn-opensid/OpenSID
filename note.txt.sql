@@ -33,3 +33,6 @@ sudo cp /home/egov/OpenSID/desa-contoh/upload/user_pict/wuser.png desa/upload/us
 sudo chown 33:33 -R .
 rm cache/*
 
+*/
+#ke4
+INSERT INTO `tweb_surat_format` VALUES (4, 'Permohonan KIS Daerah', 'surat_permohonan_kis_daerah', '000', NULL, 0, 0, 1, 1, 1, 'M', 0);
