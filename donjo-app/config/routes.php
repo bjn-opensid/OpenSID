@@ -147,3 +147,6 @@ $route['layanan-mandiri/surat/buat'] = 'layanan_mandiri/surat/buat';
 $route['layanan-mandiri/surat/buat/(:num)'] = 'layanan_mandiri/surat/buat/$1';
 // Bantuan
 $route['layanan-mandiri/bantuan'] = 'layanan_mandiri/bantuan';
+
+// custome
+$route['life'] = 'custome/life';
