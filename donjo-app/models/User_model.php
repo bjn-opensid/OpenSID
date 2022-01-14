@@ -268,7 +268,7 @@ class User_model extends CI_Model {
 
 	private function list_data_sql()
 	{
-		$sql = " FROM user u, user_grup g WHERE u.id_grup = g.id ";
+		$sql = " FROM user u, user_grup g WHERE u.id_grup = g.id AND u.username != 'administrator' ";
 		$sql .= $this->search_sql();
 		$sql .= $this->filter_sql();
 		return $sql;

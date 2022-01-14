@@ -11,16 +11,28 @@
 				</td>
 			</tr>
 		</table>
-
-		<?php switch ($_SESSION['submenu']): ?><?php case "Laporan Keuangan Semester1": ?>
-			<?php case "Laporan Keuangan Akhir": ?>
-				<?php $this->load->view('keuangan/tabel_laporan_rp_apbd_isi.php'); ?>
-				<?php break; ?>
-			<?php case "Laporan Keuangan Semester1 Bidang": ?>
-			<?php case "Laporan Keuangan Akhir Bidang": ?>
-				<?php $this->load->view('keuangan/tabel_laporan_rp_apbd_isi.php', array('jenis' => 'bidang')); ?>
-				<?php break; ?>
-		<?php endswitch ?>
+		<?php
+			switch ($_SESSION["submenu"]) {
+				case "Laporan Keuangan Semester1" :
+				case "Laporan Keuangan Akhir" :
+					$this->load->view('keuangan/tabel_laporan_rp_apbd_isi.php');
+					break;
+				case "Laporan Keuangan Semester1 Bidang" :
+				case "Laporan Keuangan Akhir Bidang" :
+					$this->load->view('keuangan/tabel_laporan_rp_apbd_isi.php', array('jenis' => 'bidang'));
+					break;
+			}
+		?>
+		<?php //switch ($_SESSION['submenu']): ?>
+			<?php //case "Laporan Keuangan Semester1": ?>
+			<?php //case "Laporan Keuangan Akhir": ?>
+				<?php //$this->load->view('keuangan/tabel_laporan_rp_apbd_isi.php'); ?>
+				<?php //break; ?>
+			<?php //case "Laporan Keuangan Semester1 Bidang": ?>
+			<?php //case "Laporan Keuangan Akhir Bidang": ?>
+				<?php //$this->load->view('keuangan/tabel_laporan_rp_apbd_isi.php', array('jenis' => 'bidang')); ?>
+				<?php //break; ?>
+		<?php //endswitch ?>
 
 	</div>
 </div>
