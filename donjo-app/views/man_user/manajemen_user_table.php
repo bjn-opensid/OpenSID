@@ -89,7 +89,7 @@
 															<?php foreach ($main as $data): ?>
 																<tr>
 																	<td>
-																		<?php if ($data['id']!=1): ?>
+																		<?php if ($data['username']!='admin'): ?>
 																			<input type="checkbox" name="id_cb[]" value="<?=$data['id']?>" />
 																		<?php endif; ?>
 																	</td>
